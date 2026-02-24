@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            background: darkgray;
+            color: white;
+        }
+
+        #header {
+            display: grid;
+            grid-template-columns: repeat(1, 2fr);
+            place-items: center;
+            background-color: grey;
+            height: 15%;
+        }
+
+        #timezones-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .timezone-section {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .timezone-name {
+            font-size: 14px;
+            color: black;
+        }
+
+    </style>
+    <title>TimeZoneConverter</title>
+</head>
+<body>
+    <header id="header">
+        <h1 id="title">Time Zone Converter</h1>
+        <h2 class="sub-title">Maybe you are just as hopeless as I am with this!</h2>
+    </header>
+
+    <div id="timezones-grid">
+        <section class="timezone-section">
+            <p class="timezone-name">New York, USA, UTC-5</p>
+            <p class="timezone-name" id="new-york-timezone"></p>
+        </section>
+
+        <section class="timezone-section">
+            <p class="timezone-name">Copenhagen, Denmark, UTC+1/CET</p>
+            <p class="timezone-name" id="copenhagen-timezone"></p>
+        </section>
+
+        <section class="timezone-section">
+            <p class="timezone-name">Tokyo, Japan, UTC+9/JST</p>
+            <p class="timezone-name" id="tokyo-timezone"></p>
+        </section>
+    </div>
+
+    <script>
+        const newYorkTimezone = document.getElementById('new-york-timezone');
+        const copenhagenTimezone = document.getElementById('copenhagen-timezone');
+        const tokyoTimezone = document.getElementById('tokyo-timezone');
+
+        function updateTimezones() {
+            const newYorkTime = new Date().toLocaleTimeString('da-DK', {timeZone: 'America/New_York'});
+            const newYorkDate = new Date().toLocaleDateString('da-DK', {timeZone: 'America/New_York'});
+            newYorkTimezone.textContent = newYorkTime + ' - ' + newYorkDate;
+
+            const copenhagenTime = new Date().toLocaleTimeString('en-US', {timeZone: 'Europe/Copenhagen'});
+            const copenhagenDate = new Date().toLocaleDateString('en-US', {timeZone: 'Europe/Copenhagen'});
+            copenhagenTimezone.textContent = copenhagenTime + ' - ' + copenhagenDate;
+
+            const tokyoTime = new Date().toLocaleTimeString('da-DK', {timeZone: 'Asia/Tokyo'});
+            const tokyoDate = new Date().toLocaleDateString('da-DK', {timeZone: 'Asia/Tokyo'});
+            tokyoTimezone.textContent = tokyoTime + ' - ' + tokyoDate;
+        }
+
+        updateTimezones();
+        setInterval(updateTimezones, 1000);
+    </script>
+</body>
+</html>
