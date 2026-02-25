@@ -69,12 +69,12 @@
         const tokyoTimezone = document.getElementById('tokyo-timezone');
 
         function updateTimezones() {
-            const newYorkTime = new Date().toLocaleTimeString('da-DK', {timeZone: 'America/New_York'});
-            const newYorkDate = new Date().toLocaleDateString('da-DK', {timeZone: 'America/New_York'});
+            const newYorkTime = new Date().toLocaleTimeString('en-US', {timeZone: 'America/New_York'});
+            const newYorkDate = new Date().toLocaleDateString('en-US', {timeZone: 'America/New_York'});
             newYorkTimezone.textContent = newYorkTime + ' - ' + newYorkDate;
 
-            const copenhagenTime = new Date().toLocaleTimeString('en-US', {timeZone: 'Europe/Copenhagen'});
-            const copenhagenDate = new Date().toLocaleDateString('en-US', {timeZone: 'Europe/Copenhagen'});
+            const copenhagenTime = new Date().toLocaleTimeString('da-DK', {timeZone: 'Europe/Copenhagen'});
+            const copenhagenDate = new Date().toLocaleDateString('da-DK', {timeZone: 'Europe/Copenhagen'});
             copenhagenTimezone.textContent = copenhagenTime + ' - ' + copenhagenDate;
 
             const tokyoTime = new Date().toLocaleTimeString('da-DK', {timeZone: 'Asia/Tokyo'});
